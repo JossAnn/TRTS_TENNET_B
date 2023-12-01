@@ -10,17 +10,12 @@ const config = {
     database: process.env.DB_DATABASE,
     password: process.env.DB_PASSWORD,
     waitForConnections: true,
-<<<<<<< HEAD
     connectionLimit: 10
-=======
-    connectionLimit: 10,
->>>>>>> Pato
   };
 
 // Crear el pool de conexiones
 const pool = mysql.createPool(config);
 
-<<<<<<< HEAD
 const createTablesQuery = `
 CREATE TABLE IF NOT EXISTS user (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -82,21 +77,12 @@ export const db = {
       signale.success('Conexión exitosa a la BD');
       const result = await conn.query(sql, params);
 
-=======
-export const db = {
-  query : async (sql, params) => {
-    try {
-      const conn = await pool.getConnection();
-      signale.success("Conexión exitosa a la BD");
-      const result = await conn.execute(sql, params);
->>>>>>> Pato
       conn.release();
       return result;
     } catch (error) {
       signale.error(error);
       return null;
     }
-<<<<<<< HEAD
   },
 };
 
@@ -104,7 +90,3 @@ export default {
   db,
   createTables
 };
-=======
-  }
-}
->>>>>>> Pato
